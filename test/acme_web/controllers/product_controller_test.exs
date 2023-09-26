@@ -97,9 +97,8 @@ defmodule AcmeWeb.ProductControllerTest do
   describe "total inventory cost" do
     setup [:create_product]
 
-    test "renders inventory cost", %{conn: conn, product: %Product{id: id} = product} do
+    test "renders inventory cost", %{conn: conn, product: %Product{id: id} = _product} do
       conn = get(conn, Routes.product_path(conn, :total_inventory_cost, id))
-      IO.inspect(json_response(conn, 200))
 
       assert %{
                "id" => ^id,
